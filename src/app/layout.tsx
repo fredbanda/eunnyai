@@ -20,8 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn("font-IMBPlex antialiased")}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn("font-IMBPlex antialiased", IBMPlex.variable)}>
+        {children}
+        </body>
     </html>
   );
 }
