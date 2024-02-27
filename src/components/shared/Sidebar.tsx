@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
-import { navLinks } from '../../../constancts';
+import { navLinks } from '../../../constants';
 import { usePathname } from 'next/navigation';
 import { Button } from '../ui/button';
 
@@ -16,7 +16,6 @@ const Sidebar = () => {
           <Image src='/logo.png' alt='logo' width={200} height={150} />
         </Link>
         <nav className='sidebar-nav'>
-
           {/* Users that are signed in */}
           <SignedIn>
             <ul className='sidebar-nav_elements'>
@@ -33,21 +32,21 @@ const Sidebar = () => {
                     }`}
                   >
                     <Link className='sidebar-link' href={link.route}>
-                      <Image 
-                      src={link.icon} 
-                      alt='logo' 
-                      width={24} 
-                      height={24}
-                      className={`${isActive && 'brightness-200'}`}
+                      <Image
+                        src={link.icon}
+                        alt='logo'
+                        width={24}
+                        height={24}
+                        className={`${isActive && 'brightness-200'}`}
                       />
                       {link.label}
                     </Link>
                   </li>
                 );
               })}
-              </ul>
-              
-              <ul className='sidebar-nav_elements'>
+            </ul>
+
+            <ul className='sidebar-nav_elements'>
               {navLinks.slice(6).map((link) => {
                 const isActive = link.route === pathname;
 
@@ -61,31 +60,31 @@ const Sidebar = () => {
                     }`}
                   >
                     <Link className='sidebar-link' href={link.route}>
-                      <Image 
-                      src={link.icon} 
-                      alt='logo' 
-                      width={24} 
-                      height={24}
-                      className={`${isActive && 'brightness-200'}`}
+                      <Image
+                        src={link.icon}
+                        alt='logo'
+                        width={24}
+                        height={24}
+                        className={`${isActive && 'brightness-200'}`}
                       />
                       {link.label}
                     </Link>
                   </li>
                 );
               })}
-              <li className="flex-center cursor-pointer gap-2 p">
+              <li className='flex-center cursor-pointer gap-2 p'>
                 <UserButton afterSignOutUrl='/' showName />
               </li>
             </ul>
-          
-      {/* Users thats are not signed in */}    
+
+            {/* Users thats are not signed in */}
           </SignedIn>
-           
-           <SignedOut>
+
+          <SignedOut>
             <Button className='button bg-purple-gradient bg-cover'>
-                <Link href="/sign-in">Login</Link>
+              <Link href='/sign-in'>Login</Link>
             </Button>
-           </SignedOut>
+          </SignedOut>
         </nav>
       </div>
     </aside>
