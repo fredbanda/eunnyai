@@ -25,7 +25,7 @@ const AddTransformationTypePage = async ({
           action={'Add'}
           userId={user._id}
           type={transformation.type as TransformationTypeKey}
-          creditBalance={0}
+          creditBalance={user.creditBalance}
         />
       </section>
     </>
